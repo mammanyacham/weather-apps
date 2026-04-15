@@ -75,6 +75,8 @@ input{
 .current-weather-info{
     border: 2px solid white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url('/images/bg-today-small.svg') no-repeat center/cover;
 }
