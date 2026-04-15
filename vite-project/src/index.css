@@ -71,3 +71,10 @@ input{
     background-color: hsl(233, 67%, 56%);
     color: white;
 }
+
+.current-weather-info{
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
