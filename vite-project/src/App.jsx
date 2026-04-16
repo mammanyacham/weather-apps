@@ -49,7 +49,7 @@ export default function App() {
        const longitude = geoCodeResults.longitude
 
 
-       const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,precipitation_sum,precipitation_probability_max,temperature_2m_max,temperature_2m_min,showers_sum,rain_sum,snowfall_sum,daylight_duration,sunshine_duration&hourly=temperature_2m,relative_humidity_2m,cloud_cover,cloud_cover_low,cloud_cover_high,cloud_cover_mid,visibility,weather_code,rain,showers,snowfall&current=apparent_temperature,temperature_2m,relative_humidity_2m,wind_speed_10m,is_day&forecast_hours=12`)
+       const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,weather_code&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code`)
 
         const weatherData = await weatherResponse.json()
 
