@@ -1,3 +1,4 @@
+import CurrentData from "./CurrentData"
 import sunnyIcon from "/images/icon-sunny.webp"
 import cloudyIcon from "/images/icon-partly-cloudy.webp"
 import fogIcon from "/images/icon-fog.webp"
@@ -47,6 +48,9 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
                 <p>{weatherData.current.temperature_2m}°C</p>
             </div> 
         </div>
+        {<CurrentData 
+            weatherData={weatherData}
+         />}
     </>
     )
    

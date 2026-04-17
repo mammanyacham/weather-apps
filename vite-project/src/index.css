@@ -70,6 +70,7 @@ input{
 .search-button{
     background-color: hsl(233, 67%, 56%);
     color: white;
+    cursor: pointer;
 }
 
 .current-weather-info{
@@ -106,5 +107,34 @@ input{
 }
 
 .temperature p{
-    font-size: 2rem;
+    font-size: 3.5rem;
+    font-weight: bold;
 }
+
+.current-weather-data{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.current-weather-data-item{
+    background-color: hsl(243, 23%, 24%);
+    padding: 17px;
+    border-radius: 10px;
+    border: 1px solid hsl(243, 23%, 30%);
+    box-shadow: 0px 0px 2px hsl(243, 23%, 30%);
+}
+
+.current-weather-data-item p{
+    margin: 10px;
+}
+
+.current-name{
+    font-size: 1.3rem;
+    color: hsl(240, 6%, 70%);
+}
+
+.current-data{
+    font-size: 1.8rem
+}
+
