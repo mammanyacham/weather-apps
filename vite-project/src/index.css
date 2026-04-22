@@ -8,7 +8,7 @@ body{
 
 .container{
     display: grid;
-    gap: 20px;
+    gap: 25px;
     max-width: 1200px;
     border: 2px solid white;
     padding: 20px;
@@ -118,7 +118,7 @@ input{
 }
 
 .current-weather-data-item{
-    background-color: hsl(243, 23%, 24%);
+    background-color: hsl(243, 27%, 20%);
     padding: 17px;
     border-radius: 10px;
     border: 1px solid hsl(243, 23%, 30%);
@@ -136,5 +136,50 @@ input{
 
 .current-data{
     font-size: 1.8rem
+}
+
+.daily-section-title{
+    font-size: 1.3rem;
+    margin: 0px; 
+    color: hsl(0, 0%, 100%);
+}
+
+.daily-forecast-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 20px;
+    margin: 0px;
+}
+
+.daily-forecast-item{
+    border-radius: 10px;
+    color: white;
+    margin: 0px;
+    padding: 0px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    min-width: 100px;
+    background-color: hsl(243, 27%, 20%);
+}
+
+.weekday{
+    font-size: 1rem;
+    color: hsl(0, 0%, 100%);
+}
+
+.daily-forecast-item > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.daily-forecast-item > img{
+    width: 70px;
+}
+
+.temp{
+    color: hsl(0, 0%, 100%);
 }
 

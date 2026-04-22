@@ -1,11 +1,7 @@
 import CurrentData from "./CurrentData"
-import sunnyIcon from "/images/icon-sunny.webp"
-import cloudyIcon from "/images/icon-partly-cloudy.webp"
-import fogIcon from "/images/icon-fog.webp"
-import stormIcon from "/images/icon-storm.webp"
-import snowIcon from "/images/icon-snow.webp"
-import rainIcon from "/images/icon-rain.webp"
-import drizzleIcon from "/images/icon-drizzle.webp"
+import DailyForecast from "./DailyForecast"
+import useWeather from "./useWeather"
+
 
 
 export default function Result({weatherData, city}) {
@@ -24,17 +20,7 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
     //use weather code to determine which icon to display
     const weatherCode = weatherData.current.weather_code
 
-
-    function getWeatherIcon(code) {
-        if(code === 0) return sunnyIcon
-        if(code <= 3) return cloudyIcon
-        if(code >= 45 && code <= 48) return fogIcon
-        if(code >= 51 && code <= 67) return drizzleIcon
-        if(code >= 71 && code <= 77) return snowIcon
-        if(code >= 80 && code <= 82) return rainIcon
-        if(code > 82) return stormIcon
-    }
-
+    const { getWeatherIcon } = useWeather()
 
     return (
     <>
@@ -45,11 +31,16 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
             </div>
             <div className="temperature">
                 <img src={getWeatherIcon(weatherCode)} className="weather-img"/>
-                <p>{weatherData.current.temperature_2m}°C</p>
+                <p>{weatherData.current.temperature_2m.toFixed()}°C</p>
             </div> 
         </div>
         {<CurrentData 
             weatherData={weatherData}
+         />}
+         {<DailyForecast 
+             weatherData={weatherData}
+             formattedDate={formattedDate.weekdayday}     
+             getWeatherIcon={getWeatherIcon(weatherCode)}   
          />}
     </>
     )
