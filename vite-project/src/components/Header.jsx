@@ -5,7 +5,7 @@ export default function Header() {
  <header>
     <img src={appLogo}/>
     
-    <select className='dropdown'>
+    <select className='dropdown' type='dropdown'>
         <option>units</option>
         <option>2</option>
         <option>3</option>

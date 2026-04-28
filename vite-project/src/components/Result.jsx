@@ -1,5 +1,6 @@
 import CurrentData from "./CurrentData"
 import DailyForecast from "./DailyForecast"
+import HourlyForecast from "./HourlyForecast"
 import useWeather from "./useWeather"
 
 
@@ -39,8 +40,11 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
          />}
          {<DailyForecast 
              weatherData={weatherData}
-             formattedDate={formattedDate.weekdayday}     
-             getWeatherIcon={getWeatherIcon(weatherCode)}   
+             formattedDate={formattedDate.weekdayday}       
+         />}
+
+         {<HourlyForecast
+               weatherData={weatherData} 
          />}
     </>
     )
