@@ -2,9 +2,9 @@ import appLogo from '/images/logo.svg'
 import dropdownIcon from '/images/icon-dropdown.svg'
 import unitsIcon from '/images/icon-units.svg'
 
-export default function Header() {
+export default function Header({switchUnitsText, toggleUnits}) {
 
-    
+
  return(
 <>
     <header>
@@ -18,11 +18,11 @@ export default function Header() {
         </div>
     </header>
     <div className='dropdown'>
-        <button><p>Switch to Imperial</p></button>
+        <button onClick={toggleUnits}><p>{switchUnitsText}</p></button>
         <div>
             <span className='dropdown-section'>Temperature</span>
-            <p className='tool'>Celsius (C)</p>
-            <p className='tool'>Fahrenheit (F)</p>
+            <p className='tool'>Celsius (°C)</p>
+            <p className='tool'>Fahrenheit (°F)</p>
         </div>
 
         <div>

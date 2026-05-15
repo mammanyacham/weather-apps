@@ -5,7 +5,7 @@ import useWeather from "./useWeather"
 
 
 
-export default function Result({weatherData, city}) {
+export default function Result({weatherData, city, isMetric}) {
 
 
 if (!weatherData || !weatherData.current) return <p>Weather data not available yet...</p>
@@ -32,11 +32,12 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
             </div>
             <div className="temperature">
                 <img src={getWeatherIcon(weatherCode)} className="weather-img"/>
-                <p>{weatherData.current.temperature_2m.toFixed()}°C</p>
+                <p>{weatherData.current.temperature_2m.toFixed()} {weatherData.current_units.apparent_temperature}</p>
             </div> 
         </div>
         {<CurrentData 
             weatherData={weatherData}
+            isMetric={isMetric}
          />}
          {<DailyForecast 
              weatherData={weatherData}
@@ -44,7 +45,7 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
          />}
 
          {<HourlyForecast
-               weatherData={weatherData} 
+            weatherData={weatherData} 
          />}
     </>
     )
