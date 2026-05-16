@@ -9,7 +9,7 @@ export default function App() {
   const [formData, setFormData] = useState()
   const [searchQuery, setSearchQuery] = useState()
   const [weatherData, setWeatherData] = useState()
-  const [isMetric, setIsMetric] = useState()
+  const [isMetric, setIsMetric] = useState(true)
 
   function toggleUnits() {
     setIsMetric(prev => !prev)
@@ -32,7 +32,7 @@ export default function App() {
   const windSpeedUnit = isMetric ? "kmh" : "mph";
   const precipitationUnit = isMetric ? "mm" : "inch";
   
-
+  
   useEffect(() => {
     async function fetchData() {
 
