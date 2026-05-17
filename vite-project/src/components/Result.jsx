@@ -2,13 +2,14 @@ import CurrentData from "./CurrentData"
 import DailyForecast from "./DailyForecast"
 import HourlyForecast from "./HourlyForecast"
 import useWeather from "./useWeather"
+import loadingIcon from "/images/icon-loading.svg"
 
 
 
-export default function Result({weatherData, city, isMetric}) {
+export default function Result({weatherData, city, searchQuery, isMetric}) {
 
 
-if (!weatherData || !weatherData.current) return <p>Weather data not available yet...</p>
+if (!weatherData || !weatherData.current) return  !searchQuery ? <p className="no-result">No search result found!</p> : <p className="no-result"><img src={loadingIcon} alt="Loading" /> <span>Loading...</span></p>
 
 const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-US", {
         weekday: 'long',
@@ -18,7 +19,7 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
     }
     ) 
 
-    //use weather code to determine which icon to display
+    
     const weatherCode = weatherData.current.weather_code
 
     const { getWeatherIcon } = useWeather()

@@ -116,6 +116,15 @@ header{
     text-align: center;
 }
 
+.no-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
 form{
     display: grid;
     gap: 5px;

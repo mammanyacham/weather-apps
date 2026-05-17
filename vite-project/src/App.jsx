@@ -67,7 +67,7 @@ export default function App() {
           setWeatherData(weatherData)
           console.log("Current weather:", weatherData)
       } catch(error) {
-          console.error("Error fetching geocoding data:", error)
+          alert("Bad internet connection or invalid location", error)
 
       }
       
@@ -92,6 +92,7 @@ export default function App() {
         weatherData={weatherData}
         city={searchQuery}
         isMetric={isMetric}
+        searchQuery={searchQuery}
       />
     </div>  
   )
