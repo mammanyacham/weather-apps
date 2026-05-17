@@ -10,7 +10,6 @@ body{
     display: grid;
     gap: 25px;
     max-width: 1200px;
-    border: 2px solid white;
     padding: 20px;
     margin: 0 auto;
 }

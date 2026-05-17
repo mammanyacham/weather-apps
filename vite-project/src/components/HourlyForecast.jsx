@@ -30,7 +30,7 @@ export default function HourlyForecast({weatherData}) {
                 <img src={getWeatherIcon(hour.weatherCode)} alt="Weather icon" className='weather-icon'/>
                 <p>{hour.newTime}</p>
             </div>
-            <p>{hour.temp}°</p>
+            <p>{hour.temp.toFixed()}°</p>
         </div>
     ))
 
