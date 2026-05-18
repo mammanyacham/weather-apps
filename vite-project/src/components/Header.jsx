@@ -3,6 +3,7 @@ import appLogo from '/images/logo.svg'
 import dropdownIcon from '/images/icon-dropdown.svg'
 import unitsIcon from '/images/icon-units.svg'
 import checkMark from '/images/icon-checkmark.svg'
+import retryIcon from '/images/icon-retry.svg'
 
 export default function Header({switchUnitsText, toggleUnits, isMetric}) {
 
@@ -32,7 +33,7 @@ export default function Header({switchUnitsText, toggleUnits, isMetric}) {
         </div>
     </header>
     <div className={dropdownState ? 'hide-dropdown' : 'dropdown'}>
-        <button onClick={toggleUnits}><p>{switchUnitsText}</p></button>
+        <button onClick={toggleUnits} className='switch-btn'><p>{switchUnitsText}</p> <img src={retryIcon}/></button>
         <div>
             <span className='dropdown-section'>Temperature</span>
             <p className={highlightMetric}>Celsius (°C) 
