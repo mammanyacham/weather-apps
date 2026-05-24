@@ -190,13 +190,14 @@ input{
     
 }
 
- h1{
+ .city{
+    font-size: 1.8rem;
+    font-weight: bold;
     margin-bottom: 0px;
 }
 
 .weather-img{
     width: 100px;
-    
 }
 
 .temperature{

@@ -28,7 +28,7 @@ const formattedDate = new Date(weatherData.current.time).toLocaleDateString("en-
     <>
         <div className="current-weather-info">
             <div className="city-date-div"> 
-                {city && <h1>{city.name}, {city.state} {city.country}</h1>}
+                {city && <p className="city">{city.name}, {city.state} {city.country}</p>}
                 <p>{formattedDate}</p>
             </div>
             <div className="temperature">
