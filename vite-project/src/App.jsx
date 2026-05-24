@@ -9,7 +9,9 @@ export default function App() {
   const [formData, setFormData] = useState()
   const [searchQuery, setSearchQuery] = useState()
   const [weatherData, setWeatherData] = useState()
+  const [city, setCity] = useState()
   const [isMetric, setIsMetric] = useState(true)
+
 
   function toggleUnits() {
     setIsMetric(prev => !prev)
@@ -24,6 +26,8 @@ export default function App() {
 
   function handleSubmit(e) {
       e.preventDefault()
+
+      if(!formData) return alert("Invalid input!")
       setSearchQuery(formData) 
       console.log(searchQuery)
   }
@@ -36,10 +40,10 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
 
-      if (!searchQuery) return
+      if (!searchQuery) return 
 
       try{
-        const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${searchQuery}&count=10&language=en&format=json`)
+        const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${searchQuery.trim()}&count=10&language=en&format=json`)
 
         const geoData = await geoResponse.json()
         
@@ -64,6 +68,14 @@ export default function App() {
           const weatherData = await weatherResponse.json()
 
 
+          console.log(geoData)
+
+          setCity({
+            name: geoCodeResults.name,
+            state: geoCodeResults.admin1,
+            country: geoCodeResults.country
+          })
+
           setWeatherData(weatherData)
           console.log("Current weather:", weatherData)
       } catch(error) {
@@ -87,10 +99,11 @@ export default function App() {
       <Search 
         getFormData={getFormData}
         handleSubmit={handleSubmit}
+       
       />
       <Result
         weatherData={weatherData}
-        city={searchQuery}
+        city={city}
         isMetric={isMetric}
         searchQuery={searchQuery}
       />
